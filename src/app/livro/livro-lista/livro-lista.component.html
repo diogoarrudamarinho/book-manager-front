@@ -1,0 +1,29 @@
+<div style="padding: 20px; font-family: sans-serif;">
+  <h2>Minha Biblioteca 📚</h2>
+
+  <button routerLink="/novo" style="margin-bottom: 15px; padding: 10px 15px; cursor: pointer; background-color: #007bff; color: white; border: none; border-radius: 4px;">
+    ➕ Novo Livro
+  </button>
+
+  <div style="display: flex; flex-direction: column; gap: 15px;">
+
+  <div style="display: flex; flex-direction: column; gap: 15px;">
+    @for (livro of livros; track livro.id) {
+      <div style="display: flex; align-items: center; gap: 15px; border: 1px solid #ccc; padding: 10px; border-radius: 8px;">
+        
+        <img [src]="livro.imageurl" alt="Capa" style="width: 60px; height: 90px; object-fit: cover; border-radius: 4px;">
+
+        <div>
+          <h3 style="margin: 0 0 5px 0;">{{ livro.titulo }}</h3>
+          <p style="margin: 0; color: #555;">Autor: {{ livro.autor }}</p>
+          <p style="margin: 5px 0 0 0; font-size: 14px;">
+            Lido: {{ livro.lido ? 'Sim ✅' : 'Não ❌' }} | Emprestado: {{ livro.emprestado ? 'Sim 🔄' : 'Não 🟢' }}
+          </p>
+        </div>
+
+      </div>
+    } @empty {
+      <p>Nenhum livro encontrado.</p>
+    }
+  </div>
+</div>
