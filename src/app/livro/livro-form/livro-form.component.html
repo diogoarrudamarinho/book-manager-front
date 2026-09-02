@@ -9,6 +9,21 @@
     <label>Autor:</label>
     <input type="text" [(ngModel)]="livro.autor" placeholder="Ex: J.R.R. Tolkien">
 
+    <div class="form-group">
+      <label for="generos">Gêneros</label>
+      <ng-select 
+        [items]="listaGeneros" 
+        bindLabel="nome" 
+        bindValue="id" 
+        [multiple]="true" 
+        placeholder="Selecione ou digite um gênero"
+        [(ngModel)]="livro.generosIds" 
+        name="generos"
+        [addTag]="criarNovoGenero"
+        addTagText="Adicionar novo gênero: ">
+      </ng-select>
+    </div>
+
     <label>URL da Capa:</label>
     <input type="text" [(ngModel)]="livro.imageurl" placeholder="Link da imagem">
 
